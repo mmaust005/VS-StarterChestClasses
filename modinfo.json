@@ -1,0 +1,14 @@
+{
+	"type": "code",
+	"name": "Starter Chest: Class Loadouts",
+	"modid": "starterchestclasses",
+	"version": "1.0.0",
+	"networkVersion": "1.0.0",
+	"description": "Addon for Starter Chest that gives new players a class-appropriate starter loadout instead of the shared default pool. Ships with defaults for all 6 vanilla classes; drag-and-drop one JSON file per class to support more.",
+	"authors": [ "Duffas" ],
+	"side": "Server",
+	"dependencies": {
+		"game": "1.22.3",
+		"starterchest": "1.1.0"
+	}
+}

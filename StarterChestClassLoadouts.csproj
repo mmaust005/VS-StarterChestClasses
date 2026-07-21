@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>StarterChestClassLoadouts</AssemblyName>
+		<RootNamespace>StarterChestClassLoadouts</RootNamespace>
+		<Nullable>disable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<!-- Override by setting the VINTAGE_STORY environment variable if the game is installed elsewhere -->
+		<VintagestoryPath Condition="'$(VINTAGE_STORY)' != ''">$(VINTAGE_STORY)</VintagestoryPath>
+		<VintagestoryPath Condition="'$(VintagestoryPath)' == ''">$(APPDATA)\Vintagestory</VintagestoryPath>
+		<!-- Override by setting the VINTAGE_STORY_DATA environment variable if the data folder is installed elsewhere -->
+		<VintagestoryDataPath Condition="'$(VINTAGE_STORY_DATA)' != ''">$(VINTAGE_STORY_DATA)</VintagestoryDataPath>
+		<VintagestoryDataPath Condition="'$(VintagestoryDataPath)' == ''">$(APPDATA)\VintagestoryData</VintagestoryDataPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="VintagestoryAPI">
+			<HintPath>$(VintagestoryPath)\VintagestoryAPI.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VintagestoryLib">
+			<HintPath>$(VintagestoryPath)\VintagestoryLib.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(VintagestoryPath)\Lib\Newtonsoft.Json.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<!-- The base Starter Chest mod - must be built/deployed first. Referenced from its deployed
+		     location (not a relative project path) so this addon can be built independently of
+		     where the base mod's source checkout happens to live. -->
+		<Reference Include="StarterChest">
+			<HintPath>$(VintagestoryDataPath)\Mods\StarterChest\StarterChest.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<!-- Copies the built mod straight into the game's Mods folder for quick local testing -->
+	<Target Name="DeployMod" AfterTargets="Build">
+		<ItemGroup>
+			<ModRootFiles Include="modinfo.json" />
+			<ModRootFiles Include="modicon.png" Condition="Exists('modicon.png')" />
+			<ModAssetFiles Include="assets\**\*.*" Condition="Exists('assets')" />
+		</ItemGroup>
+		<MakeDir Directories="$(VintagestoryDataPath)\Mods\StarterChestClassLoadouts" />
+		<Copy SourceFiles="$(TargetDir)StarterChestClassLoadouts.dll" DestinationFolder="$(VintagestoryDataPath)\Mods\StarterChestClassLoadouts" />
+		<Copy SourceFiles="@(ModRootFiles)" DestinationFolder="$(VintagestoryDataPath)\Mods\StarterChestClassLoadouts" />
+		<!-- %(RecursiveDir) is relative to the "assets\" prefix, so it must be re-added here or the
+		     literal "assets" folder (required for the game to discover these files) gets dropped. -->
+		<Copy SourceFiles="@(ModAssetFiles)" DestinationFolder="$(VintagestoryDataPath)\Mods\StarterChestClassLoadouts\assets\%(RecursiveDir)" />
+	</Target>
+
+	<!-- Builds a clean release zip (mod files only - no source, docs, or .pdb) at release\StarterChestClassLoadouts.zip.
+	     Run explicitly with: dotnet build -c Release -t:PackMod -->
+	<Target Name="PackMod" DependsOnTargets="Build">
+		<PropertyGroup>
+			<PackModStageDir>$(MSBuildProjectDirectory)\release\stage\</PackModStageDir>
+			<PackModOutputDir>$(MSBuildProjectDirectory)\release\</PackModOutputDir>
+			<PackModZipFile>$(PackModOutputDir)StarterChestClassLoadouts.zip</PackModZipFile>
+		</PropertyGroup>
+		<ItemGroup>
+			<PackModRootFiles Include="modinfo.json" />
+			<PackModRootFiles Include="modicon.png" Condition="Exists('modicon.png')" />
+			<PackModRootFiles Include="README.md" Condition="Exists('README.md')" />
+			<PackModAssetFiles Include="assets\**\*.*" Exclude="assets\**\*.md" Condition="Exists('assets')" />
+		</ItemGroup>
+		<RemoveDir Directories="$(PackModStageDir)" />
+		<MakeDir Directories="$(PackModStageDir)" />
+		<Copy SourceFiles="$(TargetDir)StarterChestClassLoadouts.dll" DestinationFolder="$(PackModStageDir)" />
+		<Copy SourceFiles="@(PackModRootFiles)" DestinationFolder="$(PackModStageDir)" />
+		<Copy SourceFiles="@(PackModAssetFiles)" DestinationFolder="$(PackModStageDir)assets\%(RecursiveDir)" />
+		<Delete Files="$(PackModZipFile)" Condition="Exists('$(PackModZipFile)')" />
+		<ZipDirectory SourceDirectory="$(PackModStageDir)" DestinationFile="$(PackModZipFile)" />
+		<RemoveDir Directories="$(PackModStageDir)" />
+		<Message Importance="high" Text="Built release zip: $(PackModZipFile)" />
+	</Target>
+
+</Project>
