@@ -22,3 +22,5 @@ Initial release.
   matches the class the player actually ends up with.
 - Built entirely on the base Starter Chest mod's public addon API
   (`StarterChestModSystem.RegisterLoadoutProvider`) - no forked or duplicated placement logic.
+- `examples/` has a `templateclass` at 3 tiers (low/medium/high) to copy as a starting point for
+  a new class file. Not loaded by the mod.

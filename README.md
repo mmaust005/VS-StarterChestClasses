@@ -69,6 +69,18 @@ To support a class this addon doesn't ship a default for (e.g. one added by anot
 server. That's it - no other config to touch. This also means a mod author (or anyone in the
 community) can share a single file for others to drop in.
 
+[`examples/`](examples/) has a `templateclass` at 3 tiers - not loaded by the mod, just a
+copy-paste starting point:
+
+| Tier | Shape |
+|---|---|
+| [`low`](examples/templateclass.low.json) | No guaranteed items, a small stone-age pool |
+| [`medium`](examples/templateclass.medium.json) | The shape the 6 shipped classes use - 2 guaranteed items, a themed pool, a copper jackpot |
+| [`high`](examples/templateclass.high.json) | 3 guaranteed items including a copper tool, a tin-bronze jackpot |
+
+To use one, copy its contents into `ModConfig/StarterChestClasses/<yourclasscode>.json` and
+restart the server.
+
 ### Removing/disabling a class
 
 Delete that class's file from `ModConfig/StarterChestClasses/` (or edit `RandomPickCount`/

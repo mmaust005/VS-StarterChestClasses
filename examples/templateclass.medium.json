@@ -1,0 +1,17 @@
+{
+	// Medium tier - the shape the 6 shipped classes actually use: 2 guaranteed signature items,
+	// a themed pool, and a low-weight copper-tier jackpot.
+	"RandomMode": true,
+	"RandomPickCount": 3,
+	"AllowDuplicatePicks": false,
+	"FixedItems": [
+		{ "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2 }
+	],
+	"RandomPool": [
+		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
+		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:pickaxe-copper", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 6 }
+	]
+}

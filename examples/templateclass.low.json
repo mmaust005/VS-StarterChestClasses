@@ -1,0 +1,12 @@
+{
+	// Low tier - a minimal class file: no guaranteed items, just a small stone-age pool.
+	"RandomMode": true,
+	"RandomPickCount": 3,
+	"AllowDuplicatePicks": false,
+	"FixedItems": [],
+	"RandomPool": [
+		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
+		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 }
+	]
+}

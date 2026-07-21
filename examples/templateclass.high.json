@@ -1,0 +1,17 @@
+{
+	// High tier - 3 guaranteed items including a copper tool, and a tin-bronze jackpot.
+	"RandomMode": true,
+	"RandomPickCount": 4,
+	"AllowDuplicatePicks": false,
+	"FixedItems": [
+		{ "Code": "game:knife-generic-copper", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+		{ "Code": "game:pickaxe-copper", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 2, "MaxQuantity": 2 }
+	],
+	"RandomPool": [
+		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
+		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 15 },
+		{ "Code": "game:hammer-tinbronze", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 6 }
+	]
+}
