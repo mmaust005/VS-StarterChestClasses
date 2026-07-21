@@ -15,6 +15,10 @@ public addon API to override what specific players get.
   also guarantees at least one food item, and no class gets a mechanical advantage (e.g. bonus
   inventory slots) another class doesn't. `commoner` is left as the plain, unthemed baseline the
   other classes are meant to stand out from.
+- Each non-commoner class also has a rare, low-weight "jackpot" entry in its `RandomPool` - a
+  copper-tier tool matching that class's theme (a Hunter's copper arrows, a Tailor's copper
+  shears, ...) - so a lucky roll occasionally hands out something genuinely good, not just more
+  early-game basics.
 - A class with no loadout file - including any class added by another mod - just falls back to
   Starter Chest's own top-level config, unchanged.
 - Adding support for a new (e.g. modded) class is one JSON file, no code and no editing of any
@@ -46,13 +50,14 @@ config:
     { "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
     { "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
     { "Code": "game:arrow-flint", "Type": "item", "MinQuantity": 8, "MaxQuantity": 16, "Weight": 35 },
-    { "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 }
+    { "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+    { "Code": "game:arrow-copper", "Type": "item", "MinQuantity": 4, "MaxQuantity": 6, "Weight": 6 }
   ]
 }
 ```
 
 (This is the actual shipped `hunter.json` - every chest gets the knife, bow, and bread for sure,
-then rolls the rest.)
+then rolls the rest. The copper arrows are the low-weight jackpot entry - rare, not guaranteed.)
 
 See the base mod's README for what `RandomMode`/`RandomPickCount`/`AllowDuplicatePicks`/
 `FixedItems`/`RandomPool` do, and how `Weight` works - all identical here.

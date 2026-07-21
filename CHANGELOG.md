@@ -11,7 +11,10 @@ Initial release.
   knife, a Blackguard's shield and spear, a Malefactor's trap, ...) so every chest is
   recognizable on sight, plus at least one guaranteed food item - no class starts without food,
   and no class gets a mechanical advantage (e.g. bonus inventory slots) another lacks.
-  `commoner` stays the plain, unthemed baseline.
+  `commoner` stays the plain, unthemed baseline. Each non-commoner class also has a rare,
+  low-weight copper-tier "jackpot" item in its pool (a Hunter's copper arrows, a Tailor's copper
+  shears, a Clockmaker's copper hammer, a Malefactor's copper chisel, a Blackguard's copper
+  spear) for the occasional lucky roll.
 - Classes without a file (including any added by other mods) fall back to Starter Chest's own
   top-level config, unchanged.
 - Waits for character creation to finish (not just for `characterClass` to be set, which the

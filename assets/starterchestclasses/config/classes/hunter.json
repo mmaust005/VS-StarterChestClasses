@@ -11,6 +11,7 @@
 		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
 		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
 		{ "Code": "game:arrow-flint", "Type": "item", "MinQuantity": 8, "MaxQuantity": 16, "Weight": 35 },
-		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 }
+		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:arrow-copper", "Type": "item", "MinQuantity": 4, "MaxQuantity": 6, "Weight": 6 }
 	]
 }

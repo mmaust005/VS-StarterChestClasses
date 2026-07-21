@@ -11,6 +11,7 @@
 		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
 		{ "Code": "game:flaxtwine", "Type": "item", "MinQuantity": 1, "MaxQuantity": 3, "Weight": 20 },
 		{ "Code": "game:candle", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 15 },
-		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 }
+		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+		{ "Code": "game:shears-copper", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 6 }
 	]
 }
