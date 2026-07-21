@@ -9,10 +9,12 @@ later) to be installed.** This addon has no effect on its own - it plugs into St
 public addon API to override what specific players get.
 
 - Ships with a default loadout for all 6 vanilla character classes (`commoner`, `hunter`,
-  `malefactor`, `clockmaker`, `blackguard`, `tailor`). Every class shares the same baseline
-  survival essentials (firestarter, flint, stick, rope, bread, cheese) as Starter Chest's own
-  default pool, plus one guaranteed, class-themed item on top - nobody starts without food, and
-  no class gets a mechanical advantage (e.g. bonus inventory slots) another class doesn't.
+  `malefactor`, `clockmaker`, `blackguard`, `tailor`), each built around 2-3 guaranteed,
+  class-themed `FixedItems` (a Hunter's bow and knife, a Blackguard's shield and spear, ...) so
+  every chest of that class is recognizable on sight, not just occasionally lucky. Every class
+  also guarantees at least one food item, and no class gets a mechanical advantage (e.g. bonus
+  inventory slots) another class doesn't. `commoner` is left as the plain, unthemed baseline the
+  other classes are meant to stand out from.
 - A class with no loadout file - including any class added by another mod - just falls back to
   Starter Chest's own top-level config, unchanged.
 - Adding support for a new (e.g. modded) class is one JSON file, no code and no editing of any
@@ -33,23 +35,24 @@ config:
 ```json
 {
   "RandomMode": true,
-  "RandomPickCount": 5,
+  "RandomPickCount": 3,
   "AllowDuplicatePicks": false,
   "FixedItems": [
-    { "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 }
+    { "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+    { "Code": "game:bow-simple", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+    { "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2 }
   ],
   "RandomPool": [
     { "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
-    { "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
-    { "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 3, "Weight": 20 },
-    { "Code": "game:bow-simple", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
-    { "Code": "game:arrow-flint", "Type": "item", "MinQuantity": 6, "MaxQuantity": 12, "Weight": 25 }
+    { "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+    { "Code": "game:arrow-flint", "Type": "item", "MinQuantity": 8, "MaxQuantity": 16, "Weight": 35 },
+    { "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 }
   ]
 }
 ```
 
-(This is the actual shipped `hunter.json`, trimmed to fit the example - the full file also
-includes flint/stick/rope, same as every other class.)
+(This is the actual shipped `hunter.json` - every chest gets the knife, bow, and bread for sure,
+then rolls the rest.)
 
 See the base mod's README for what `RandomMode`/`RandomPickCount`/`AllowDuplicatePicks`/
 `FixedItems`/`RandomPool` do, and how `Weight` works - all identical here.

@@ -7,9 +7,11 @@ Initial release.
 - Class-based starter loadouts, one file per character class under
   `ModConfig/StarterChestClasses/` (e.g. `hunter.json`), seeded on first run with defaults for
   all 6 vanilla classes (`commoner`, `hunter`, `malefactor`, `clockmaker`, `blackguard`,
-  `tailor`). Every class shares the same baseline survival essentials and food as Starter
-  Chest's own default pool, plus one guaranteed class-themed item - no class starts without
-  food, and no class gets a mechanical advantage (e.g. bonus inventory slots) another lacks.
+  `tailor`). Each is built around 2-3 guaranteed, class-themed `FixedItems` (a Hunter's bow and
+  knife, a Blackguard's shield and spear, a Malefactor's trap, ...) so every chest is
+  recognizable on sight, plus at least one guaranteed food item - no class starts without food,
+  and no class gets a mechanical advantage (e.g. bonus inventory slots) another lacks.
+  `commoner` stays the plain, unthemed baseline.
 - Classes without a file (including any added by other mods) fall back to Starter Chest's own
   top-level config, unchanged.
 - Waits for character creation to finish (not just for `characterClass` to be set, which the

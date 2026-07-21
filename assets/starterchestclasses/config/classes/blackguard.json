@@ -1,18 +1,16 @@
 {
 	"RandomMode": true,
-	"RandomPickCount": 5,
+	"RandomPickCount": 3,
 	"AllowDuplicatePicks": false,
 	"FixedItems": [
-		{ "Code": "game:shield-blackguard", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 }
+		{ "Code": "game:shield-blackguard", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+		{ "Code": "game:spear-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 },
+		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 2, "MaxQuantity": 2 }
 	],
 	"RandomPool": [
 		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
-		{ "Code": "game:flint", "Type": "item", "MinQuantity": 2, "MaxQuantity": 4, "Weight": 25 },
-		{ "Code": "game:stick", "Type": "item", "MinQuantity": 3, "MaxQuantity": 6, "Weight": 25 },
-		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 15 },
-		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 2, "MaxQuantity": 4, "Weight": 25 },
 		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 2, "MaxQuantity": 4, "Weight": 25 },
-		{ "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 10 },
-		{ "Code": "game:spear-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 }
+		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 25 },
+		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 15 }
 	]
 }
