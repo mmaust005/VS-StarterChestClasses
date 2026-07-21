@@ -9,7 +9,10 @@ later) to be installed.** This addon has no effect on its own - it plugs into St
 public addon API to override what specific players get.
 
 - Ships with a default loadout for all 6 vanilla character classes (`commoner`, `hunter`,
-  `malefactor`, `clockmaker`, `blackguard`, `tailor`), each themed around that class's traits.
+  `malefactor`, `clockmaker`, `blackguard`, `tailor`). Every class shares the same baseline
+  survival essentials (firestarter, flint, stick, rope, bread, cheese) as Starter Chest's own
+  default pool, plus one guaranteed, class-themed item on top - nobody starts without food, and
+  no class gets a mechanical advantage (e.g. bonus inventory slots) another class doesn't.
 - A class with no loadout file - including any class added by another mod - just falls back to
   Starter Chest's own top-level config, unchanged.
 - Adding support for a new (e.g. modded) class is one JSON file, no code and no editing of any
@@ -30,17 +33,23 @@ config:
 ```json
 {
   "RandomMode": true,
-  "RandomPickCount": 3,
+  "RandomPickCount": 5,
   "AllowDuplicatePicks": false,
   "FixedItems": [
     { "Code": "game:knife-generic-flint", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 }
   ],
   "RandomPool": [
+    { "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
+    { "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
+    { "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 3, "Weight": 20 },
     { "Code": "game:bow-simple", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
     { "Code": "game:arrow-flint", "Type": "item", "MinQuantity": 6, "MaxQuantity": 12, "Weight": 25 }
   ]
 }
 ```
+
+(This is the actual shipped `hunter.json`, trimmed to fit the example - the full file also
+includes flint/stick/rope, same as every other class.)
 
 See the base mod's README for what `RandomMode`/`RandomPickCount`/`AllowDuplicatePicks`/
 `FixedItems`/`RandomPool` do, and how `Weight` works - all identical here.

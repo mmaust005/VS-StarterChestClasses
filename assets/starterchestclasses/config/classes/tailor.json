@@ -1,12 +1,15 @@
 {
 	"RandomMode": true,
-	"RandomPickCount": 2,
+	"RandomPickCount": 5,
 	"AllowDuplicatePicks": false,
 	"FixedItems": [
 		{ "Code": "game:sewingkit", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1 }
 	],
 	"RandomPool": [
 		{ "Code": "game:firestarter", "Type": "item", "MinQuantity": 1, "MaxQuantity": 1, "Weight": 15 },
+		{ "Code": "game:flint", "Type": "item", "MinQuantity": 2, "MaxQuantity": 4, "Weight": 25 },
+		{ "Code": "game:stick", "Type": "item", "MinQuantity": 3, "MaxQuantity": 6, "Weight": 25 },
+		{ "Code": "game:rope", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 15 },
 		{ "Code": "game:bread-rye-perfect", "Type": "item", "MinQuantity": 1, "MaxQuantity": 2, "Weight": 20 },
 		{ "Code": "game:cheese-cheddar-1slice", "Type": "item", "MinQuantity": 1, "MaxQuantity": 3, "Weight": 20 }
 	]

@@ -1,6 +1,6 @@
 {
 	"RandomMode": true,
-	"RandomPickCount": 4,
+	"RandomPickCount": 5,
 	"AllowDuplicatePicks": false,
 	"FixedItems": [],
 	"RandomPool": [

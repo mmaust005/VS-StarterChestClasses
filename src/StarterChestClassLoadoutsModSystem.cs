@@ -35,13 +35,8 @@ namespace StarterChestClassLoadouts
 			starterChest.RegisterLoadoutProvider(ProvideLoadout, IsReady);
 		}
 
-		// Loadouts live one-per-file under ModConfig/StarterChestClasses/, named "<classcode>.json"
-		// (e.g. "hunter.json") - so a mod author or community member adding support for a new class
-		// is just one file to drop in, and a server with many class mods installed doesn't end up
-		// with one unwieldy config file. The folder is seeded once from the packaged vanilla class
-		// defaults and never touched again afterwards, same as the base mod's own config; anything
-		// added later (built-in or drag-and-dropped) is picked up on every server start by scanning
-		// whatever's actually in the folder.
+		// One file per class under ModConfig/StarterChestClasses/, e.g. "hunter.json". Seeded once
+		// from the packaged vanilla defaults, never touched again - scanned fresh on every start.
 		void LoadClassLoadouts()
 		{
 			string classDir = Path.Combine(sapi.GetOrCreateDataPath("ModConfig"), ClassLoadoutsDirName);
@@ -90,12 +85,9 @@ namespace StarterChestClassLoadouts
 		// The character class the player picked at creation, e.g. "hunter" - null if unset.
 		static string GetClassCode(IServerPlayer player) => player.Entity.WatchedAttributes.GetString("characterClass", null);
 
-		// The vanilla CharacterSystem assigns a default class (the first entry, "commoner")
-		// immediately on character creation, well before the player's real pick is submitted, so
-		// characterClass is never actually empty/null and can't be used as a "not ready yet" signal
-		// on its own. "createCharacter" is the player mod-data flag CharacterSystem itself sets to
-		// true exactly when the selection dialog is submitted (see CharacterSystem.onCharacterSelection),
-		// so that's the precise signal to wait for instead.
+		// CharacterSystem assigns a default class ("commoner") immediately on creation, before the
+		// real pick is submitted, so characterClass alone can't signal "not ready yet". "createCharacter"
+		// is the mod-data flag CharacterSystem sets true exactly when selection is submitted.
 		bool IsReady(IServerPlayer player) => player.GetModData("createCharacter", false);
 
 		StarterChest.StarterChestLoadoutResult ProvideLoadout(IServerPlayer player)
